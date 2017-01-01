@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_good_description"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fillViewport="true">
+
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:id="@+id/linear_layout_good_description"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/good_image"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
+
+        <TextView
+            android:id="@+id/good_title"
+            android:textSize="32sp"
+            android:text="description"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/good_text"
+            android:textSize="22sp"
+            android:text="description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/button_write_review"
+            android:text="@string/write_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <aleksandrov.aleksandr.shopping.list_of_reviews.NonScrollableListView
+            android:id="@+id/review_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+        </aleksandrov.aleksandr.shopping.list_of_reviews.NonScrollableListView>
+
+    </LinearLayout>
+</ScrollView>

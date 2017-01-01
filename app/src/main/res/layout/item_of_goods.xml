@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/item_of_goods_relative_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/item_of_goods_image"
+        android:src="@drawable/ic_menu_camera"
+        style="@style/ImageInItems"/>
+
+    <TextView
+        android:id="@+id/item_of_goods_title"
+        style="@style/TitleInItems"
+        android:text="title"/>
+
+</FrameLayout>

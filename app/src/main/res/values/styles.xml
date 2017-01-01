@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ImageInItems" parent="AlertDialog.AppCompat.Light">
+        <item name="android:layout_height">125dp</item>
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">left</item>
+    </style>
+
+    <style name="TitleInItems" parent="AlertDialog.AppCompat.Light">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorStarNormal</item>
+        <item name="colorControlActivated">@color/colorStartActivated</item>
+        <item name="android:minHeight">12dp</item>
+        <item name="android:maxHeight">12dp</item>
+    </style>
+</resources>

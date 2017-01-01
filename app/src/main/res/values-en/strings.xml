@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shopping</string>
+    <string name="personal_area">Personal area</string>
+    <string name="action_settings">Settings</string>
+    <string name="registration_tab">Registration</string>
+    <string name="authorization_tab">Authorization</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="log_in">Log in</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign up</string>
+    <string name="fill_in_username">Fill in your username, please</string>
+    <string name="log_out">Log out</string>
+    <string name="incorrect_data">Username or password aren\'t correct</string>
+    <string name="user_already_exist">User with this username is already exist</string>
+    <string name="password_do_not_match">Passwords do not match</string>
+    <string name="review">Review</string>
+    <string name="send_review">Send review</string>
+    <string name="write_review">Write review</string>
+    <string name="something_went_wrong">Something went wrong</string>
+</resources>

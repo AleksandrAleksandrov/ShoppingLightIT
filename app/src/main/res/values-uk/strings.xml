@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shopping</string>
+    <string name="personal_area">Особистий кабінет</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="authorization_tab">Авторизація</string>
+    <string name="registration_tab">Реєстрація</string>
+    <string name="confirm_password">Підтвердіть пароль</string>
+    <string name="log_in">Увійти</string>
+    <string name="password">Пароль</string>
+    <string name="username">Iм\'я користувача</string>
+    <string name="sign_up">Зареєструватися</string>
+    <string name="fill_in_username">Заповніть своє ім\'я користувача, будь ласка</string>
+    <string name="log_out">Вийти</string>
+    <string name="incorrect_data">Ім\'я користувача або пароль не вірні</string>
+    <string name="user_already_exist">Користувач з такою назвою вже існує</string>
+    <string name="password_do_not_match">Паролі не співпадають</string>
+    <string name="review">Відгук</string>
+    <string name="send_review">Відправити відгук</string>
+    <string name="write_review">Написати відгук</string>
+    <string name="something_went_wrong">Щось пішло не так</string>
+</resources>
