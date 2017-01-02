@@ -19,4 +19,5 @@
     <string name="send_review">Отправить отзыв</string>
     <string name="write_review">Написать отзыв</string>
     <string name="something_went_wrong">Что-то пошло не так</string>
+    <string name="to_leave_review_need_authorization">Вы должны быть авторизованы, чтобы оставить отзыв</string>
 </resources>

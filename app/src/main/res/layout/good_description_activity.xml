@@ -23,23 +23,27 @@
         <TextView
             android:id="@+id/good_title"
             android:textSize="32sp"
-            android:text="description"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="25dp"
+            android:text="Title"
+            android:layout_margin="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/good_text"
             android:textSize="22sp"
-            android:text="description"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/button_write_review"
             android:text="@string/write_review"
-            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"/>
 
         <aleksandrov.aleksandr.shopping.list_of_reviews.NonScrollableListView

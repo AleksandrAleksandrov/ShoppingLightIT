@@ -26,11 +26,10 @@
 
         <activity android:name=".review.ReviewActivity"/>
 
-        <activity android:name=".my_account.MyAccountActivity"
-                  android:parentActivityName=".list_of_goods.MainActivity"/>
+        <activity android:name=".my_account.MyAccountActivity"/>
 
         <activity android:name=".authorization.AuthorizationActivity"
-            android:parentActivityName=".list_of_goods.MainActivity"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+                  android:parentActivityName=".list_of_goods.MainActivity"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

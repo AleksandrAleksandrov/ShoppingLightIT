@@ -19,4 +19,5 @@
     <string name="send_review">Відправити відгук</string>
     <string name="write_review">Написати відгук</string>
     <string name="something_went_wrong">Щось пішло не так</string>
+    <string name="to_leave_review_need_authorization">Ви повинні бути авторизовані, щоб залишити відгук</string>
 </resources>

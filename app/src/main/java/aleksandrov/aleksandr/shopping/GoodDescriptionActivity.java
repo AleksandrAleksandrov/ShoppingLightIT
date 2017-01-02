@@ -1,15 +1,18 @@
 package aleksandrov.aleksandr.shopping;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import aleksandrov.aleksandr.shopping.authorization.AuthorizationActivity;
 import aleksandrov.aleksandr.shopping.list_of_goods.Good;
 import aleksandrov.aleksandr.shopping.list_of_goods.ImageLoader;
 import aleksandrov.aleksandr.shopping.list_of_reviews.ListOfReviewAdapter;
@@ -34,12 +37,17 @@ public class GoodDescriptionActivity extends NavigationViewActivity {
     private Good good;
     private ListOfReviewAdapter listOfReviewAdapter;
     private NonScrollableListView listView;
+    private SharedPreferences mSharedPreferences;
+    private ArrayList<Review> mReviewArrayList = null;
 
     public static int RESULT_FROM_MY_REVIEW_ACTIVITY = 1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.good_description_activity);
+
+        mSharedPreferences = getSharedPreferences(Res.SHARED_PREFERENCES, MODE_PRIVATE);
 
         ViewHolder viewHolder = new ViewHolder();
         imageLoader = new ImageLoader(GoodDescriptionActivity.this);
@@ -51,9 +59,15 @@ public class GoodDescriptionActivity extends NavigationViewActivity {
         buttonWriteReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GoodDescriptionActivity.this, ReviewActivity.class);
-                intent.putExtra(Res.ID, good.getId());
-                startActivityForResult(intent, RESULT_FROM_MY_REVIEW_ACTIVITY);
+                if (!mSharedPreferences.getString(Res.PREF_USERNAME, "").equals("")) {
+                    Intent intent = new Intent(GoodDescriptionActivity.this, ReviewActivity.class);
+                    intent.putExtra(Res.ID, good.getId());
+                    startActivityForResult(intent, RESULT_FROM_MY_REVIEW_ACTIVITY);
+                } else {
+                    startActivity(new Intent(GoodDescriptionActivity.this, AuthorizationActivity.class));
+                    Toast.makeText(GoodDescriptionActivity.this, R.string.to_leave_review_need_authorization, Toast.LENGTH_LONG).show();
+                }
+
             }
         });
         viewHolder.imageHolder = (ImageView) findViewById(R.id.good_image);
@@ -62,11 +76,12 @@ public class GoodDescriptionActivity extends NavigationViewActivity {
         imageView = viewHolder.imageHolder;
 
         good = getIntent().getParcelableExtra(Good.class.getCanonicalName());
-        getReviews(good.getId());
+        if (savedInstanceState == null) {
+            getReviews(good.getId());
+        }
         titleView.setText(good.getTitle());
         textView.setText(good.getText());
         imageLoader.DisplayImage(Res.PROTOCOL_SCHEME + Res.PICTURES_URL + good.getImageURL(), imageView);
-
 
     }
 
@@ -91,6 +106,7 @@ public class GoodDescriptionActivity extends NavigationViewActivity {
                 .subscribe(new Action1<ArrayList<Review>>() {
                     @Override
                     public void call(final ArrayList<Review> reviewArrayList) {
+                        mReviewArrayList = reviewArrayList;
                         fillData(reviewArrayList);
                     }
                 });
@@ -110,6 +126,21 @@ public class GoodDescriptionActivity extends NavigationViewActivity {
             } else {
                 return;
             }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(Review.class.getCanonicalName(), mReviewArrayList);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mReviewArrayList = savedInstanceState.getParcelableArrayList(Review.class.getCanonicalName());
+        if (mReviewArrayList != null) {
+            fillData(mReviewArrayList);
         }
     }
 }

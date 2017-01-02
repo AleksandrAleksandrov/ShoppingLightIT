@@ -19,4 +19,5 @@
     <string name="send_review">Send review</string>
     <string name="write_review">Write review</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <string name="to_leave_review_need_authorization">You must be authorized to leave a review</string>
 </resources>

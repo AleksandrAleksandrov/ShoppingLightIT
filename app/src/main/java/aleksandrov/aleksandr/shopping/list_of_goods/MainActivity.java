@@ -28,20 +28,19 @@ import rx.schedulers.Schedulers;
 
 public class MainActivity extends NavigationViewActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-//    private ArrayList<Good> goodStringArray = new ArrayList<>();
     private ListOfGoodsAdapter listOfGoodsAdapter;
     private SharedPreferences sharedPreferences;
     private TextView textViewNavigationName;
+    private ArrayList<Good> mGoodArrayList = null;
+    String MY_GOOD_ARRAY_LIST_TAG = "myGoodArrayList";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        getProducts();
         if (savedInstanceState == null) {
+            getProducts();
             getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
     }
@@ -61,7 +60,6 @@ public class MainActivity extends NavigationViewActivity implements NavigationVi
                 startActivity(intent);
             }
         });
-
     }
 
     private void getProducts() {
@@ -79,6 +77,7 @@ public class MainActivity extends NavigationViewActivity implements NavigationVi
                 .subscribe(new Action1<ArrayList<Good>>() {
                     @Override
                     public void call(final ArrayList<Good> goodArrayList) {
+                        mGoodArrayList = goodArrayList;
                         fillData(goodArrayList);
                     }
                 });
@@ -118,6 +117,21 @@ public class MainActivity extends NavigationViewActivity implements NavigationVi
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_placeholder, container, false);
             return rootView;
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(MY_GOOD_ARRAY_LIST_TAG, mGoodArrayList);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mGoodArrayList = savedInstanceState.getParcelableArrayList(MY_GOOD_ARRAY_LIST_TAG);
+        if (mGoodArrayList != null) {
+            fillData(mGoodArrayList);
         }
     }
 }

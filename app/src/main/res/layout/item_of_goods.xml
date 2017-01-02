@@ -2,8 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/item_of_goods_relative_layout"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground">
+              android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/item_of_goods_image"
@@ -13,6 +12,7 @@
     <TextView
         android:id="@+id/item_of_goods_title"
         style="@style/TitleInItems"
+        android:textSize="24sp"
         android:text="title"/>
 
 </FrameLayout>
