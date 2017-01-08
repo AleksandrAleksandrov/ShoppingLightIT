@@ -154,21 +154,26 @@ public class ImageLoader {
             conn.setInstanceFollowRedirects(true);
             InputStream is = conn.getInputStream();
 
-            // Constructs a new FileOutputStream that writes to file
-            // if file not exist then it will create file
-            OutputStream os = new FileOutputStream(f);
+            if (f.canWrite()) {
+                // Constructs a new FileOutputStream that writes to file
+                // if file not exist then it will create file
+                OutputStream os = new FileOutputStream(f);
 
-            // See Utils class CopyStream method
-            // It will each pixel from input stream and
-            // write pixels to output stream (file)
-            Utils.CopyStream(is, os);
+                // See Utils class CopyStream method
+                // It will each pixel from input stream and
+                // write pixels to output stream (file)
+                Utils.CopyStream(is, os);
 
-            os.close();
+                os.close();
+
+                //Now file created and going to resize file with defined height
+                // Decodes image and scales it to reduce memory consumption
+                bitmap = decodeFile(f);
+            }  else {
+                bitmap = BitmapFactory.decodeStream(is);
+            }
+
             conn.disconnect();
-
-            //Now file created and going to resize file with defined height
-            // Decodes image and scales it to reduce memory consumption
-            bitmap = decodeFile(f);
 
             return bitmap;
 
